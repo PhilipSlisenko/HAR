@@ -2,11 +2,6 @@ import numpy as np
 import math
 
 
-def read_file(fname: str) -> np.ndarray:
-    arr = np.genfromtxt(fname, dtype=float, delimiter=',', skip_header=2)
-    return arr
-
-
 def add_acceleration_vector_column(arr: np.ndarray) -> np.ndarray:
     calc_acc_vect = lambda ser: math.sqrt(np.sum(np.square(ser)))
     acc_vect = np.apply_along_axis(calc_acc_vect, 1, arr)
